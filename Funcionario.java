@@ -2,11 +2,17 @@ package projeto01;
 
 
 
-public class Funcionario extends Ponto {
+public class Funcionario {
 	private String nome;
-	private int matricula;
+	private String matricula;
 	private String cargo;
-	public int vez;
+	
+	
+	public Funcionario(String nome, String matricula, String cargo) {
+		this.nome = nome;
+		this.matricula = matricula;
+		this.cargo = cargo; 
+	}
 	
 	public String getNome() {
 		return nome;
@@ -14,10 +20,10 @@ public class Funcionario extends Ponto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getMatricula() {
+	public String getMatricula() {
 		return matricula;
 	}
-	public void setMatricula(int matricula) {
+	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
 	public String getCargo() {
@@ -27,25 +33,8 @@ public class Funcionario extends Ponto {
 		this.cargo = cargo;
 	}
 	
-	void registraFuncionario(String nome,int matricula,String cargo) {
-		setNome(nome);
-		setMatricula(matricula);
-		setCargo(cargo);
-	}
 	
 	
-	void registraPonto() {
-		vez++;
-		if(vez>2) {
-			System.out.println("Já registrou duas vezes! Não pode mais hoje");
-		}else {
-			registra(vez);
-			
-		}
-	}
-	
-	
-	
-	
+		
 
 }

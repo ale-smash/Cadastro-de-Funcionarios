@@ -11,9 +11,7 @@ public class Ações {
 	Scanner ler = new Scanner(System.in);
 	
 	public void TelaInicial(){
-		System.out.println("  O que gostaria de fazer?");
-		System.out.println("\ta) Cadastrar um funcionário\n\tb) Registrar o ponto de um funcionário\n\tC) Consultar o ponto do funcionário");
-		String esc = ler.nextLine();
+		String esc = perguntaInicial();
 		switch(esc) {
 			case "a":
 				cadastrar();
@@ -29,6 +27,13 @@ public class Ações {
 				System.out.println("----------------------------------------------------------------------\n");
 				TelaInicial();
 		}
+	}
+
+	private String perguntaInicial() {
+		System.out.println("  O que gostaria de fazer?");
+		System.out.println("\ta) Cadastrar um funcionário\n\tb) Registrar o ponto de um funcionário\n\tC) Consultar o ponto do funcionário");
+		String esc = ler.nextLine();
+		return esc;
 	}
 	
 	public void cadastrar() {

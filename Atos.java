@@ -138,7 +138,7 @@ public class Atos {
 	
 	private String informarMatricula() {
 		String matricula;		
-		System.out.println("Informe a matrícula: ");
+		System.out.println("Informe a matrícula do funcionário(a): ");
         matricula = ler.next(); 
         return matricula;
 	}

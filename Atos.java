@@ -13,13 +13,13 @@ public class Atos {
 	public void TelaInicial(){
 		
 		switch(perguntaInicial()) {
-			case "a":
+			case "a", "A":
 				cadastrar();
 				break;
-			case "b":
+			case "b", "B":
 				registrarPonto();
 				break;
-			case "c":
+			case "c", "C":
 				consultarPonto();
 				break;
 			default:

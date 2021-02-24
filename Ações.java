@@ -36,7 +36,7 @@ public class Ações {
 		return esc;
 	}
 	
-	public void cadastrar() {
+	private void cadastrar() {
 		System.out.println("Digite o nome");
 		String nome = ler.nextLine();
 		System.out.println("Digite a matrícula");
@@ -51,16 +51,16 @@ public class Ações {
 		TelaInicial();
 	}
 	
-	public void registrarPonto() {
+	private void registrarPonto() {
 		if(funcionarios.size() == 0) {
-        	System.out.println("Não há funcionários cadastrados para registrar ponto");
+        	System.out.println("Não há funcionários cadastrados para bater ponto");
         }else {
         	String matricula = informarMatricula();
-        	boolean te = true;
+        	boolean te1 = true;
 	        for(int i=0; i<funcionarios.size(); i++) {
-	            if(matricula.equalsIgnoreCase(funcionarios.get(i).getMatricula())) {
+	            if(comparaMatricula(matricula, i)) {
 	                System.out.println(funcionarios.get(i).getNome());
-	                te = false;
+	                te1 = false;
 	                switch(ponto.get(i).getVez()) {
 	                	case 0:
 	                		ponto.get(i).setPontoDeEntrada();
@@ -75,49 +75,69 @@ public class Ações {
 	                }
 	            }
 	        }
-	        negativa(te);
+	        matriculaNaoEncontrada(te1);
         }
 		System.out.println("----------------------------------------------------------------------\n");
 		TelaInicial();
 	}
 
-	public void consultarPonto() {
+	private boolean comparaMatricula(String matricula, int i) {
+		return matricula.equalsIgnoreCase(funcionarios.get(i).getMatricula());
+	}
+
+	private void consultarPonto() {
 		if(funcionarios.size() == 0) {
         	System.out.println("Não há funcionários cadastrados para consultar ponto");
         }else {
         	String matricula = informarMatricula();
-        	boolean te = true;
+        	boolean te2 = true;
         	for(int i=0; i<funcionarios.size(); i++) {
-	            if(matricula.equalsIgnoreCase(funcionarios.get(i).getMatricula()) && ponto.get(i).getPontoDeEntrada() != null
-	            		&& ponto.get(i).getPontoDeSaida() != null) {
-	            	te = false;
+	            if(comparaMatricula(matricula, i) && verificarPonto(i) == 1) {
+	            	te2 = false;
 	            	System.out.println(funcionarios.get(i).getNome()+ "\n" + funcionarios.get(i).getCargo() + "\n" +
 	            			"Entrada: " + ponto.get(i).getPontoDeEntrada() + "\n" + 
 	            			"Saída: " + ponto.get(i).getPontoDeSaida());
 	            }
-	            if(matricula.equalsIgnoreCase(funcionarios.get(i).getMatricula()) && ponto.get(i).getPontoDeEntrada() != null
-	            		&& ponto.get(i).getPontoDeSaida() == null){
-	            	te = false;
+	            if(comparaMatricula(matricula, i) && verificarPonto(i) == 2){
+	            	te2 = false;
 	            	System.out.println(funcionarios.get(i).getNome()+ "\n" + funcionarios.get(i).getCargo() + "\n" +
 	            			"Entrada: " + ponto.get(i).getPontoDeEntrada());
 	            } 
+	            if(comparaMatricula(matricula, i) && verificarPonto(i) == 3) {
+	            	te2 = false;
+	            	System.out.println("Funcionário(a) " + funcionarios.get(i).getNome() + " não bateu ponto");
+	            }
         	}
-        	negativa(te);
+        	matriculaNaoEncontrada(te2);
         }
 		System.out.println("----------------------------------------------------------------------\n");
 		TelaInicial();
 	}
 	
-	public String informarMatricula() {
+	private int verificarPonto(int i) {
+		int e = 0;
+		if(ponto.get(i).getPontoDeEntrada() != null && ponto.get(i).getPontoDeSaida() != null) {
+			e = 1;
+		}
+		if(ponto.get(i).getPontoDeEntrada() != null && ponto.get(i).getPontoDeSaida() == null){
+			e = 2;
+		}
+		if(ponto.get(i).getPontoDeEntrada() == null && ponto.get(i).getPontoDeSaida() == null){
+			e = 3;
+		}
+		return e;
+	}
+	
+	private String informarMatricula() {
 		String matricula;		
 		System.out.println("Informe a matrícula: ");
         matricula = ler.next(); 
         return matricula;
 	}
 	
-	public void negativa(boolean te) {
+	private void matriculaNaoEncontrada(boolean te) {
 		if(te) {
-        	System.out.println("Registro não encontrado");
+        	System.out.println("Matrícula não encontrada");
         }
 	}
 	

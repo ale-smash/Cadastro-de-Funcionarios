@@ -11,21 +11,18 @@ public class Atos {
 	Scanner ler = new Scanner(System.in);
 	
 	public void TelaInicial(){
-		
+		try {
 		switch(perguntaInicial()) {
-			case "a", "A":
-				cadastrar();
-				break;
-			case "b", "B":
-				registrarPonto();
-				break;
-			case "c", "C":
-				consultarPonto();
-				break;
-			default:
-				System.out.println("Digite uma das opções, por favor\n");
-				System.out.println("----------------------------------------------------------------------\n");
-				TelaInicial();
+			case "a", "A" -> cadastrar();
+			case "b", "B" -> registrarPonto();
+			case "c", "C" -> consultarPonto();
+			default ->	throw new IllegalArgumentException();	
+		}
+		}catch(IllegalArgumentException e){
+			System.out.println("Digite uma das opções, por favor\n\n");
+		}finally {
+			System.out.println("----------------------------------------------------------------------\n");
+			TelaInicial();
 		}
 	}
 
@@ -44,8 +41,8 @@ public class Atos {
 		String cargo = ler.nextLine();
 		
 		criarCadastro(nome, matricula, cargo);
-		System.out.println("----------------------------------------------------------------------\n");
-		TelaInicial();
+		
+		
 	}
 
 	private void criarCadastro(String nome, String matricula, String cargo) {
@@ -80,8 +77,8 @@ public class Atos {
 	        }
 	        matriculaNaoEncontrada(te1);
         }
-		System.out.println("----------------------------------------------------------------------\n");
-		TelaInicial();
+		
+		
 	}
 
 	private boolean comparaMatricula(String matricula, int i) {

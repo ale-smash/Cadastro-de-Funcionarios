@@ -11,8 +11,8 @@ public class Atos {
 	Scanner ler = new Scanner(System.in);
 	
 	public void TelaInicial(){
-		String esc = perguntaInicial();
-		switch(esc) {
+		
+		switch(perguntaInicial()) {
 			case "a":
 				cadastrar();
 				break;
@@ -31,9 +31,8 @@ public class Atos {
 
 	private String perguntaInicial() {
 		System.out.println("  O que gostaria de fazer?");
-		System.out.println("\ta) Cadastrar um funcionário\n\tb) Registrar o ponto de um funcionário\n\tC) Consultar o ponto do funcionário");
-		String esc = ler.nextLine();
-		return esc;
+		System.out.println("\ta) Cadastrar um funcionário\n\tb) Registrar o ponto de um funcionário\n\tC) Consultar o ponto do funcionário");	 
+		return ler.nextLine();
 	}
 	
 	private void cadastrar() {

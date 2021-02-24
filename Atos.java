@@ -50,7 +50,7 @@ public class Atos {
 	}
 	
 	private void registrarPonto() {
-		if(funcionarios.size() == 0) {
+		if(funcionarios.isEmpty()) {
         	System.out.println("Não há funcionários cadastrados para bater ponto");
         }else {
         	String matricula = informarMatricula();
@@ -75,7 +75,7 @@ public class Atos {
 	}
 
 	private void consultarPonto() {
-		if(funcionarios.size() == 0) {
+		if(funcionarios.isEmpty()) {
         	System.out.println("Não há funcionários cadastrados para consultar ponto");
         }else {
         	String matricula = informarMatricula();

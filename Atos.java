@@ -60,16 +60,9 @@ public class Atos {
 	                System.out.println(funcionarios.get(i).getNome());
 	                te1 = false;
 	                switch(ponto.get(i).getVez()) {
-	                	case 0:
-	                		ponto.get(i).setPontoDeEntrada();
-	                		System.out.println("Ponto batido com sucesso!");
-	                		break;
-	                	case 1:
-	                		ponto.get(i).setPontoDeSaida();
-	                		System.out.println("Ponto batido com sucesso!");
-	                		break;
-	                	default:
-	                		System.out.println("Você já atingiu o limite de pontos batidos por dia");
+	                	case 0 -> ponto.get(i).setPontoDeEntrada();
+	                	case 1 -> ponto.get(i).setPontoDeSaida();
+	                	default -> System.out.println("Você já atingiu o limite de pontos batidos por dia");
 	                }
 	            }
 	        }

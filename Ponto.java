@@ -23,6 +23,7 @@ public class Ponto {
 		DateFormat dtHora = DateFormat.getDateTimeInstance();
 		this.pontoDeEntrada = dtHora.format(data);
 		this.vez++;
+		System.out.println("Ponto de entrada batido com sucesso!");
 	}
 
 	public String getPontoDeSaida() {
@@ -35,6 +36,7 @@ public class Ponto {
 		DateFormat dtHora = DateFormat.getDateTimeInstance();
 		this.pontoDeSaida = dtHora.format(data);
 		this.vez++;
+		System.out.println("Ponto de saída batido com sucesso!");
 	}
 
 	public int getVez() {

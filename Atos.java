@@ -3,7 +3,7 @@ package projeto01;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Ações {
+public class Atos {
 	
 	ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 	ArrayList<Ponto> ponto = new ArrayList<Ponto>();
@@ -44,11 +44,15 @@ public class Ações {
 		System.out.println("Digite o cargo");
 		String cargo = ler.nextLine();
 		
+		cadastroRealizado(nome, matricula, cargo);
+		System.out.println("----------------------------------------------------------------------\n");
+		TelaInicial();
+	}
+
+	private void cadastroRealizado(String nome, String matricula, String cargo) {
 		funcionarios.add(new Funcionario(nome, matricula, cargo));
 		ponto.add(new Ponto());
 		System.out.println("Funcionário cadastrado com sucesso!\n");
-		System.out.println("----------------------------------------------------------------------\n");
-		TelaInicial();
 	}
 	
 	private void registrarPonto() {
@@ -93,15 +97,12 @@ public class Ações {
         	boolean te2 = true;
         	for(int i=0; i<funcionarios.size(); i++) {
 	            if(comparaMatricula(matricula, i) && verificarPonto(i) == 1) {
-	            	te2 = false;
-	            	System.out.println(funcionarios.get(i).getNome()+ "\n" + funcionarios.get(i).getCargo() + "\n" +
-	            			"Entrada: " + ponto.get(i).getPontoDeEntrada() + "\n" + 
-	            			"Saída: " + ponto.get(i).getPontoDeSaida());
+	            	te2 = mostraEntrada(i);
+	            	System.out.println("Saída: " + ponto.get(i).getPontoDeSaida());
+	            			
 	            }
 	            if(comparaMatricula(matricula, i) && verificarPonto(i) == 2){
-	            	te2 = false;
-	            	System.out.println(funcionarios.get(i).getNome()+ "\n" + funcionarios.get(i).getCargo() + "\n" +
-	            			"Entrada: " + ponto.get(i).getPontoDeEntrada());
+	            	te2 = mostraEntrada(i);
 	            } 
 	            if(comparaMatricula(matricula, i) && verificarPonto(i) == 3) {
 	            	te2 = false;
@@ -112,6 +113,14 @@ public class Ações {
         }
 		System.out.println("----------------------------------------------------------------------\n");
 		TelaInicial();
+	}
+
+	private boolean mostraEntrada(int i) {
+		boolean te2;
+		te2 = false;
+		System.out.println(funcionarios.get(i).getNome()+ "\n" + funcionarios.get(i).getCargo() + "\n" +
+				"Entrada: " + ponto.get(i).getPontoDeEntrada());
+		return te2;
 	}
 	
 	private int verificarPonto(int i) {

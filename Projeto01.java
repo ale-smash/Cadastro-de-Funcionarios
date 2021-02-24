@@ -5,7 +5,7 @@ public class Projeto01 {
 
 	public static void main(String[] args) {
 		
-		Ações ativar = new Ações();
+		Atos ativar = new Atos();
 		ativar.TelaInicial();
 		
 	}

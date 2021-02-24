@@ -44,12 +44,12 @@ public class Atos {
 		System.out.println("Digite o cargo");
 		String cargo = ler.nextLine();
 		
-		cadastroRealizado(nome, matricula, cargo);
+		criarCadastro(nome, matricula, cargo);
 		System.out.println("----------------------------------------------------------------------\n");
 		TelaInicial();
 	}
 
-	private void cadastroRealizado(String nome, String matricula, String cargo) {
+	private void criarCadastro(String nome, String matricula, String cargo) {
 		funcionarios.add(new Funcionario(nome, matricula, cargo));
 		ponto.add(new Ponto());
 		System.out.println("Funcionário cadastrado com sucesso!\n");

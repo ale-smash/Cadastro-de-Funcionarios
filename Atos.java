@@ -40,9 +40,7 @@ public class Atos {
 		System.out.println("Digite o cargo");
 		String cargo = ler.nextLine();
 		
-		criarCadastro(nome, matricula, cargo);
-		
-		
+		criarCadastro(nome, matricula, cargo);	
 	}
 
 	private void criarCadastro(String nome, String matricula, String cargo) {
@@ -76,9 +74,7 @@ public class Atos {
 	            }
 	        }
 	        matriculaNaoEncontrada(te1);
-        }
-		
-		
+        }	
 	}
 
 	private boolean comparaMatricula(String matricula, int i) {
@@ -107,8 +103,6 @@ public class Atos {
         	}
         	matriculaNaoEncontrada(te2);
         }
-		System.out.println("----------------------------------------------------------------------\n");
-		TelaInicial();
 	}
 
 	private boolean mostraEntrada(int i) {

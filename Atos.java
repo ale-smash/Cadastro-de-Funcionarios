@@ -28,7 +28,7 @@ public class Atos {
 	}
 
 	private void sair() {
-		System.out.println("Programa encerrado\n Adeus!");
+		System.out.println("Programa encerrado\nAdeus!");
 		System.exit(0);
 	}
 
@@ -46,12 +46,12 @@ public class Atos {
 		System.out.println("Digite o cargo");
 		String cargo = ler.nextLine();
 		
-		verificarRepetição(nome, matricula );
+		verificarRepeticao(nome, matricula );
 		
 		criarCadastro(nome, matricula, cargo);	
 	}
 
-	private void verificarRepetição(String nome, String matricula) {
+	private void verificarRepeticao(String nome, String matricula) {
 		if(!funcionarios.isEmpty()) {
 			for(int i=0; i<funcionarios.size(); i++) {
         				if(funcionarios.get(i).getMatricula().equals(matricula)) {
@@ -62,7 +62,7 @@ public class Atos {
         					if(funcionarios.get(i).getNome().equals(nome)) {
             					System.out.println("Esse nome já existe em um dos cadastros. Gostaria de incluí-lo assim mesmo?");
             					System.out.println("Sim ou não?");
-            					if(simOuNão(ler.nextLine())){
+            					if(simOuNao(ler.nextLine())){
             						System.out.println("Tudo bem. Nome incluído");
             					}else {
             						System.out.println("Falha em cadastrar");
@@ -75,7 +75,7 @@ public class Atos {
         }
 	}
 
-	private boolean simOuNão(String resposta) {
+	private boolean simOuNao(String resposta) {
 		if(resposta.equalsIgnoreCase("Sim")) {
 			return true;
 		}

@@ -16,6 +16,7 @@ public class Atos {
 			case "a", "A" -> cadastrar();
 			case "b", "B" -> registrarPonto();
 			case "c", "C" -> consultarPonto();
+			case "d", "D" -> sair();
 			default ->	throw new IllegalArgumentException();	
 		}
 		}catch(IllegalArgumentException e){
@@ -26,9 +27,14 @@ public class Atos {
 		}
 	}
 
+	private void sair() {
+		System.out.println("Programa encerrado\n Adeus!");
+		System.exit(0);
+	}
+
 	private String perguntaInicial() {
 		System.out.println("  O que gostaria de fazer?");
-		System.out.println("\ta) Cadastrar um funcionário\n\tb) Registrar o ponto de um funcionário\n\tC) Consultar o ponto do funcionário");	 
+		System.out.println("\ta) Cadastrar um funcionário\n\tb) Registrar o ponto de um funcionário\n\tC) Consultar o ponto do funcionário\n\tD) Sair");	 
 		return ler.nextLine();
 	}
 	

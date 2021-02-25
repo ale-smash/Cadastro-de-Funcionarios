@@ -40,7 +40,26 @@ public class Atos {
 		System.out.println("Digite o cargo");
 		String cargo = ler.nextLine();
 		
+		verificarRepetição(nome, matricula, cargo);
+		
 		criarCadastro(nome, matricula, cargo);	
+	}
+
+	private void verificarRepetição(String nome, String matricula, String cargo) {
+		if(!funcionarios.isEmpty()) {
+        	funcionarios.forEach(
+        			x -> {
+        				if(x.getNome().equals(nome)) {
+        					System.out.println("Esse nome já existe em um dos cadastros. Falha em cadastrar");
+        					TelaInicial();
+        				}
+        				if(x.getMatricula().equals(matricula)) {
+        					System.out.println("Número de matrícula já cadastrada. Falha em cadastrar");
+        					TelaInicial();
+        				}
+        			}
+        	);
+        }
 	}
 
 	private void criarCadastro(String nome, String matricula, String cargo) {

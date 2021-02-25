@@ -40,26 +40,41 @@ public class Atos {
 		System.out.println("Digite o cargo");
 		String cargo = ler.nextLine();
 		
-		verificarRepetição(nome, matricula, cargo);
+		verificarRepetição(nome, matricula );
 		
 		criarCadastro(nome, matricula, cargo);	
 	}
 
-	private void verificarRepetição(String nome, String matricula, String cargo) {
+	private void verificarRepetição(String nome, String matricula) {
 		if(!funcionarios.isEmpty()) {
         	funcionarios.forEach(
         			x -> {
         				if(x.getNome().equals(nome)) {
-        					System.out.println("Esse nome já existe em um dos cadastros. Falha em cadastrar");
-        					TelaInicial();
+        					System.out.println("Esse nome já existe em um dos cadastros. Gostaria de incluí-lo assim mesmo?");
+        					System.out.println("Sim ou não?");
+        					if(simOuNão(ler.nextLine())) {
+        						System.out.println("Tudo bem. Nome incluído");
+        					}else {
+        						System.out.println("Falha em cadastrar");
+        						System.out.println("----------------------------------------------------------------------\n");
+        						TelaInicial();
+        					}
         				}
         				if(x.getMatricula().equals(matricula)) {
         					System.out.println("Número de matrícula já cadastrada. Falha em cadastrar");
+        					System.out.println("----------------------------------------------------------------------\n");
         					TelaInicial();
         				}
         			}
         	);
         }
+	}
+
+	private boolean simOuNão(String resposta) {
+		if(resposta.equalsIgnoreCase("Sim")) {
+			return true;
+		}
+		return false;
 	}
 
 	private void criarCadastro(String nome, String matricula, String cargo) {

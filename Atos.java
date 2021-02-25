@@ -49,21 +49,21 @@ public class Atos {
 		if(!funcionarios.isEmpty()) {
         	funcionarios.forEach(
         			x -> {
-        				if(x.getNome().equals(nome)) {
-        					System.out.println("Esse nome já existe em um dos cadastros. Gostaria de incluí-lo assim mesmo?");
-        					System.out.println("Sim ou não?");
-        					if(simOuNão(ler.nextLine())) {
-        						System.out.println("Tudo bem. Nome incluído");
-        					}else {
-        						System.out.println("Falha em cadastrar");
-        						System.out.println("----------------------------------------------------------------------\n");
-        						TelaInicial();
-        					}
-        				}
         				if(x.getMatricula().equals(matricula)) {
         					System.out.println("Número de matrícula já cadastrada. Falha em cadastrar");
         					System.out.println("----------------------------------------------------------------------\n");
         					TelaInicial();
+        					if(x.getNome().equals(nome)) {
+            					System.out.println("Esse nome já existe em um dos cadastros. Gostaria de incluí-lo assim mesmo?");
+            					System.out.println("Sim ou não?");
+            					if(simOuNão(ler.nextLine())) {
+            						System.out.println("Tudo bem. Nome incluído");
+            					}else {
+            						System.out.println("Falha em cadastrar");
+            						System.out.println("----------------------------------------------------------------------\n");
+            						TelaInicial();
+            					}
+            				}
         				}
         			}
         	);
